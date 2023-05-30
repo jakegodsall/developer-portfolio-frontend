@@ -1,0 +1,23 @@
+.hero {
+    &__textContent {
+        max-width: 70.9rem;
+    }
+
+    &__title {
+        font-size: 8.8rem;
+        line-height: 8.8rem;
+        letter-spacing: -0.25rem;
+    }
+
+    &__titleSpan {
+        display: inline-block;
+        border-bottom: 0.6rem solid #4ee1a0;
+    }
+
+    &__description {
+        max-width: 44.5rem;
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
+}
