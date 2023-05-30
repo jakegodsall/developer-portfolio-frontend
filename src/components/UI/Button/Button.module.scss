@@ -1,0 +1,17 @@
+$green: #4ee1a0;
+
+.button {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 0.23rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $green;
+    cursor: pointer;
+
+    transition: color 0.3s ease-out;
+
+    &:hover {
+        color: $green;
+    }
+}

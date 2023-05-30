@@ -11,7 +11,7 @@ const Hero = () => {
                     Based in the UK, I’m a front-end developer passionate about building accessible
                     web apps that users love.
                 </p>
-                <Button>contact me</Button>
+                <Button destination='#/'>contact me</Button>
             </div>
         </div>
     );
