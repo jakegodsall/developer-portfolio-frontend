@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import Hero from './components/Hero/Hero';
 import SkillsList from './components/Skills/SkillsList/SkillsList';
 import ProjectList from './components/Projects/ProjectList/ProjectList';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
                 <Hero />
                 <SkillsList />
                 <ProjectList />
+                <Footer />
             </div>
         </div>
     );

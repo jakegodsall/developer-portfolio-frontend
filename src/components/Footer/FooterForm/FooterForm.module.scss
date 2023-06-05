@@ -1,0 +1,28 @@
+.footerForm {
+    max-width: 44.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    &_row {
+        width: 100%;
+
+        &:last-child {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &_input {
+        font-family: inherit;
+        font-size: 1.6rem;
+        width: 100%;
+        color: #fff;
+        opacity: 0.7;
+        background-color: inherit;
+        text-transform: uppercase;
+        border: none;
+        border-bottom: 1px solid #fff;
+        padding: 0 1.6rem 2.4rem 1.6rem;
+    }
+}
