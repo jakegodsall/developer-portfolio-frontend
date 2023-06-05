@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Header.module.scss';
 
 import GitHub from '../../assets/images/icon-github.svg';
@@ -9,12 +8,12 @@ import Twitter from '../../assets/images/icon-twitter.svg';
 const Header = () => {
     return (
         <div className={styles.header}>
-            <p className={styles.header__name}>adamkeyes</p>
-            <div className={styles.header__socials}>
+            <p className={styles.header_name}>adamkeyes</p>
+            <div className={styles.header_socials}>
                 {[GitHub, LinkedIn, FrontendMentor, Twitter].map((el, key) => {
                     return (
                         <a href='#/' key={key}>
-                            <img className={styles.header__socialItem} src={el} alt='social logo' />
+                            <img className={styles.header_socialItem} src={el} alt='social logo' />
                         </a>
                     );
                 })}

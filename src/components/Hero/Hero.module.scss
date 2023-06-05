@@ -1,9 +1,9 @@
 .hero {
-    &__textContent {
+    &_textContent {
         max-width: 70.9rem;
     }
 
-    &__photo {
+    &_photo {
         position: absolute;
         top: 0;
         right: 16.5rem;
@@ -12,7 +12,7 @@
         height: 72rem;
     }
 
-    &__rings {
+    &_rings {
         position: absolute;
         top: 13.3rem;
         left: -10rem;
@@ -21,18 +21,18 @@
         opacity: 0.5;
     }
 
-    &__title {
+    &_title {
         font-size: 8.8rem;
         line-height: 8.8rem;
         letter-spacing: -0.25rem;
     }
 
-    &__titleSpan {
+    &_titleSpan {
         display: inline-block;
         border-bottom: 0.6rem solid #4ee1a0;
     }
 
-    &__description {
+    &_description {
         max-width: 44.5rem;
         font-weight: 500;
         font-size: 1.8rem;

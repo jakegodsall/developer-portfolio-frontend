@@ -9,17 +9,17 @@ const Hero = () => {
     return (
         <div className={styles.hero}>
             <img
-                className={styles.hero__photo}
+                className={styles.hero_photo}
                 src={ImageProfileDesktop}
                 alt='Adam Keyes photograph'
             />
-            <img className={styles.hero__rings} src={PatternRings} alt='Background pattern' />
-            <div className={styles.hero__textContent}>
-                <h1 className={styles.hero__title}>
-                    Nice to meet you! I’m{' '}
-                    <span className={styles.hero__titleSpan}>Adam Keynes</span>.
+            <img className={styles.hero_rings} src={PatternRings} alt='Background pattern' />
+            <div className={styles.hero_textContent}>
+                <h1 className={styles.hero_title}>
+                    Nice to meet you! I’m <span className={styles.hero_titleSpan}>Adam Keynes</span>
+                    .
                 </h1>
-                <p className={styles.hero__description}>
+                <p className={styles.hero_description}>
                     Based in the UK, I’m a front-end developer passionate about building accessible
                     web apps that users love.
                 </p>

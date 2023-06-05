@@ -1,5 +1,6 @@
 import styles from './SkillsItem.module.scss';
 
+// eslint-disable-next-line react/prop-types
 const SkillsItem = ({ title, experience }) => {
     return (
         <div className={styles.skillsItem}>
