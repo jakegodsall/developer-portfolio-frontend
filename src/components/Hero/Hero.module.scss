@@ -1,15 +1,21 @@
 .hero {
+    height: 60.6rem;
+    position: relative;
+
     &_textContent {
+        position: relative;
+        z-index: 2;
         max-width: 70.9rem;
+        margin-bottom: 6.6rem;
     }
 
     &_photo {
         position: absolute;
-        top: 0;
-        right: 16.5rem;
+        z-index: 1;
+        top: -25rem;
+        right: 0;
         width: 44.5rem;
         height: 72rem;
-        z-index: -1;
     }
 
     &_rings {
