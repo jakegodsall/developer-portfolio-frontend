@@ -2,6 +2,7 @@ import Header from './components/Header/Header';
 import styles from './App.module.scss';
 import Hero from './components/Hero/Hero';
 import SkillsList from './components/Skills/SkillsList/SkillsList';
+import ProjectList from './components/Projects/ProjectList/ProjectList';
 
 const App = () => {
     return (
@@ -10,6 +11,7 @@ const App = () => {
                 <Header />
                 <Hero />
                 <SkillsList />
+                <ProjectList />
             </div>
         </div>
     );

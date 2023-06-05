@@ -1,0 +1,15 @@
+.projectList {
+    margin-top: 14rem;
+
+    &_headerBar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &_title {
+        margin: 0;
+        font-size: 8.8rem;
+        letter-spacing: -0.25rem;
+    }
+}
