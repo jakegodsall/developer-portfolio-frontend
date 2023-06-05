@@ -5,11 +5,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 8rem;
     }
 
     &_title {
         margin: 0;
         font-size: 8.8rem;
         letter-spacing: -0.25rem;
+    }
+
+    &_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 7rem 3rem;
     }
 }
