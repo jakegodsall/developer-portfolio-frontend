@@ -31,11 +31,15 @@ const SKILLS = [
 
 const SkillsList = () => {
     return (
-        <div className={styles.skillsList}>
-            {SKILLS.map((skill, key) => {
-                return <SkillsItem title={skill.title} experience={skill.experience} key={key} />;
-            })}
-        </div>
+        <>
+            <div className={styles.skillsList}>
+                {SKILLS.map((skill, key) => {
+                    return (
+                        <SkillsItem title={skill.title} experience={skill.experience} key={key} />
+                    );
+                })}
+            </div>
+        </>
     );
 };
 

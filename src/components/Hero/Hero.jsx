@@ -1,5 +1,4 @@
 import Button from '../UI/Button/Button';
-
 import styles from './Hero.module.scss';
 
 import ImageProfileDesktop from '../../assets/images/image-profile-desktop.webp';
