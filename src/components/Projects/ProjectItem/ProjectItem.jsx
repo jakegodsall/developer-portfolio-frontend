@@ -9,8 +9,8 @@ const ProjectItem = (props) => {
             <div className={styles.projectItem_imageContainer}>
                 <img className={styles.projectItem_image} src={props.project.smallImage} />
                 <div className={styles.projectItem_imageOverlay}>
-                    <Button>View project</Button>
-                    <Button>View code</Button>
+                    <Button destination={props.project.liveURL}>View project</Button>
+                    <Button destination={props.project.githubURL}>View code</Button>
                 </div>
             </div>
             <div className={styles.projectItem_textContent}>
