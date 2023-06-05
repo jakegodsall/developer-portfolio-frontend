@@ -16,12 +16,12 @@ const Hero = () => {
             <img className={styles.hero_rings} src={PatternRings} alt='Background pattern' />
             <div className={styles.hero_textContent}>
                 <h1 className={styles.hero_title}>
-                    Nice to meet you! I’m <span className={styles.hero_titleSpan}>Adam Keynes</span>
-                    .
+                    Nice to meet you! I&apos;m{' '}
+                    <span className={styles.hero_titleSpan}>Adam Keynes</span>.
                 </h1>
                 <p className={styles.hero_description}>
-                    Based in the UK, I’m a front-end developer passionate about building accessible
-                    web apps that users love.
+                    Based in the UK, I&apos;m a front-end developer passionate about building
+                    accessible web apps that users love.
                 </p>
                 <Button destination='#/'>contact me</Button>
             </div>

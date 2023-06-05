@@ -5,10 +5,12 @@ import SkillsList from './components/Skills/SkillsList/SkillsList';
 
 const App = () => {
     return (
-        <div className={styles.container}>
-            <Header />
-            <Hero />
-            <SkillsList />
+        <div className={styles.container_main}>
+            <div className={styles.container_content}>
+                <Header />
+                <Hero />
+                <SkillsList />
+            </div>
         </div>
     );
 };
