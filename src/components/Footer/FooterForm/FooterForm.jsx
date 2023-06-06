@@ -1,10 +1,28 @@
+import { useState } from 'react';
+
 import styles from './FooterForm.module.scss';
 
 import Button from '../../UI/Button/Button';
 
 const FooterForm = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const [nameStatus, setNameStatus] = useState('');
+    const [emailStatus, setEmailStatus] = useState('');
+    const [messageStatus, setMessageStatus] = useState('');
+
+    const onSubmitHandler = (e) => {
+        e.target.preventDefault();
+
+        console.log(e.target);
+
+        setName(e.target.value);
+    };
+
     return (
-        <form className={styles.footerForm}>
+        <form className={styles.footerForm} onSubmit={onSubmitHandler}>
             <div className={styles.footerForm_row}>
                 <input
                     type='text'
@@ -32,7 +50,9 @@ const FooterForm = () => {
                 ></textarea>
             </div>
             <div className={styles.footerForm_row}>
-                <Button>send message</Button>
+                <button className={styles.footerForm_submitButton} type='submit'>
+                    Send message
+                </button>
             </div>
         </form>
     );
