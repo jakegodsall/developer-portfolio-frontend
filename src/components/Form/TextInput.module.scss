@@ -1,0 +1,36 @@
+$color-success: #4ee1a0;
+$color-failure: #ff6f5b;
+
+.textInput {
+    width: 100%;
+    &_input {
+        font-family: inherit;
+        font-size: 1.6rem;
+        width: 100%;
+        color: #fff;
+        opacity: 0.7;
+        background-color: inherit;
+        text-transform: uppercase;
+        border: none;
+        border-bottom: 1px solid #fff;
+        padding: 0 1.6rem 2.4rem 1.6rem;
+        outline: none;
+        resize: none;
+
+        &:invalid {
+            border-bottom: 1px solid $color-failure;
+        }
+
+        &:valid {
+            border-bottom: 1px solid $color-success;
+        }
+    }
+
+    &_initial {
+        border-bottom: 1px solid #fff !important;
+    }
+
+    &_validationMessage {
+        color: $color-failure;
+    }
+}

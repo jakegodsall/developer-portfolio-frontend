@@ -1,11 +1,11 @@
 import styles from './Footer.module.scss';
 
-import FooterForm from './FooterForm/FooterForm';
+import Form from '../Form/Form';
 
 const Footer = () => {
     return (
         <div className={styles.footer}>
-            <FooterForm />
+            <Form />
         </div>
     );
 };
