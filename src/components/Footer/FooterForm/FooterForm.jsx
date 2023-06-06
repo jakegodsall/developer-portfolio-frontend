@@ -35,8 +35,8 @@ const FooterForm = () => {
     }
 
     const errorMessageClasses = [
-        `${styles.footerForm_errorMessage} ${styles.footerForm_errorMessage___notShown}`,
         `${styles.footerForm_errorMessage} ${styles.footerForm_errorMessage___shown}`,
+        `${styles.footerForm_errorMessage} ${styles.footerForm_errorMessage___notShown}`,
     ];
 
     const validateEmail = (value) => {
@@ -56,6 +56,16 @@ const FooterForm = () => {
         setMessageStatus(validateIsNotEmpty(message));
 
         setEmailStatus(validateEmail(email));
+
+        if (nameStatus && emailStatus && messageStatus) {
+            setName('');
+            setEmail('');
+            setMessage('');
+
+            setNameStatus('');
+            setEmailStatus('');
+            setMessageStatus('');
+        }
     };
 
     const onSubmitHandler = (e) => {
@@ -83,12 +93,13 @@ const FooterForm = () => {
                     type='text'
                     name='name'
                     placeholder='name'
+                    value={name}
                     className={nameClass}
                     onChange={onChangeNameHandler}
                 />
                 <p
                     className={
-                        !nameStatus ? `${errorMessageClasses[0]}` : `${errorMessageClasses[1]}`
+                        nameStatus === false ? errorMessageClasses[0] : errorMessageClasses[1]
                     }
                 >
                     Sorry, invalid format here
@@ -98,11 +109,18 @@ const FooterForm = () => {
                 <input
                     type='email'
                     name='email'
+                    value={email}
                     placeholder='email'
                     className={emailClass}
                     onChange={onChangeEmailHandler}
                 />
-                <p>Sorry, invalid format here</p>
+                <p
+                    className={
+                        emailStatus === false ? errorMessageClasses[0] : errorMessageClasses[1]
+                    }
+                >
+                    Sorry, invalid format here
+                </p>
             </div>
             <div className={styles.footerForm_row}>
                 <textarea
@@ -110,11 +128,18 @@ const FooterForm = () => {
                     id='message'
                     cols='10'
                     rows='3'
+                    value={message}
                     placeholder='message'
                     className={messageClass}
                     onChange={onChangeMessageHandler}
                 ></textarea>
-                <p>Sorry, invalid format here</p>
+                <p
+                    className={
+                        messageStatus === false ? errorMessageClasses[0] : errorMessageClasses[1]
+                    }
+                >
+                    Sorry, invalid format here
+                </p>
             </div>
             <div className={styles.footerForm_row}>
                 <button className={styles.footerForm_submitButton} type='submit'>
