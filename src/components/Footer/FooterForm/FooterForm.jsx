@@ -34,6 +34,11 @@ const FooterForm = () => {
         messageClass = `${styles.footerForm_input} ${styles.footerForm_input___failure}`;
     }
 
+    const errorMessageClasses = [
+        `${styles.footerForm_errorMessage} ${styles.footerForm_errorMessage___notShown}`,
+        `${styles.footerForm_errorMessage} ${styles.footerForm_errorMessage___shown}`,
+    ];
+
     const validateEmail = (value) => {
         const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
         return pattern.test(value);
@@ -81,6 +86,13 @@ const FooterForm = () => {
                     className={nameClass}
                     onChange={onChangeNameHandler}
                 />
+                <p
+                    className={
+                        !nameStatus ? `${errorMessageClasses[0]}` : `${errorMessageClasses[1]}`
+                    }
+                >
+                    Sorry, invalid format here
+                </p>
             </div>
             <div className={styles.footerForm_row}>
                 <input
@@ -90,6 +102,7 @@ const FooterForm = () => {
                     className={emailClass}
                     onChange={onChangeEmailHandler}
                 />
+                <p>Sorry, invalid format here</p>
             </div>
             <div className={styles.footerForm_row}>
                 <textarea
@@ -101,6 +114,7 @@ const FooterForm = () => {
                     className={messageClass}
                     onChange={onChangeMessageHandler}
                 ></textarea>
+                <p>Sorry, invalid format here</p>
             </div>
             <div className={styles.footerForm_row}>
                 <button className={styles.footerForm_submitButton} type='submit'>
