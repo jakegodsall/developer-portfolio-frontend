@@ -13,6 +13,46 @@ const FooterForm = () => {
     const [emailStatus, setEmailStatus] = useState('');
     const [messageStatus, setMessageStatus] = useState('');
 
+    let nameClass = `${styles.footerForm_input}`;
+    if (nameStatus === true) {
+        nameClass = `${styles.footerForm_input} ${styles.footerForm_input___success}`;
+    } else if (nameStatus === false) {
+        nameClass = `${styles.footerForm_input} ${styles.footerForm_input___failure}`;
+    }
+
+    let emailClass = `${styles.footerForm_input}`;
+    if (emailStatus === true) {
+        emailClass = `${styles.footerForm_input} ${styles.footerForm_input___success}`;
+    } else if (emailStatus === false) {
+        emailClass = `${styles.footerForm_input} ${styles.footerForm_input___failure}`;
+    }
+
+    let messageClass = `${styles.footerForm_input}`;
+    if (messageStatus === true) {
+        messageClass = `${styles.footerForm_input} ${styles.footerForm_input___success}`;
+    } else if (messageStatus === false) {
+        messageClass = `${styles.footerForm_input} ${styles.footerForm_input___failure}`;
+    }
+
+    const validateEmail = (value) => {
+        const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+        return pattern.test(value);
+    };
+
+    const validateIsNotEmpty = (value) => {
+        return !(value.trim().length === 0);
+    };
+
+    const handleValidation = () => {
+        console.log('HANDLING');
+        // is empty handlers
+        setNameStatus(validateIsNotEmpty(name));
+        setEmailStatus(validateIsNotEmpty(email));
+        setMessageStatus(validateIsNotEmpty(message));
+
+        setEmailStatus(validateEmail(email));
+    };
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
@@ -32,13 +72,13 @@ const FooterForm = () => {
     };
 
     return (
-        <form className={styles.footerForm} onSubmit={onSubmitHandler}>
+        <form className={styles.footerForm} onSubmit={onSubmitHandler} noValidate>
             <div className={styles.footerForm_row}>
                 <input
                     type='text'
                     name='name'
                     placeholder='name'
-                    className={styles.footerForm_input}
+                    className={nameClass}
                     onChange={onChangeNameHandler}
                 />
             </div>
@@ -47,7 +87,7 @@ const FooterForm = () => {
                     type='email'
                     name='email'
                     placeholder='email'
-                    className={styles.footerForm_input}
+                    className={emailClass}
                     onChange={onChangeEmailHandler}
                 />
             </div>
@@ -58,7 +98,7 @@ const FooterForm = () => {
                     cols='10'
                     rows='3'
                     placeholder='message'
-                    className={styles.footerForm_input}
+                    className={messageClass}
                     onChange={onChangeMessageHandler}
                 ></textarea>
             </div>
