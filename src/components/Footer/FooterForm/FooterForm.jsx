@@ -14,11 +14,21 @@ const FooterForm = () => {
     const [messageStatus, setMessageStatus] = useState('');
 
     const onSubmitHandler = (e) => {
-        e.target.preventDefault();
+        e.preventDefault();
 
-        console.log(e.target);
+        handleValidation();
+    };
 
+    const onChangeNameHandler = (e) => {
         setName(e.target.value);
+    };
+
+    const onChangeEmailHandler = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const onChangeMessageHandler = (e) => {
+        setMessage(e.target.value);
     };
 
     return (
@@ -29,6 +39,7 @@ const FooterForm = () => {
                     name='name'
                     placeholder='name'
                     className={styles.footerForm_input}
+                    onChange={onChangeNameHandler}
                 />
             </div>
             <div className={styles.footerForm_row}>
@@ -37,6 +48,7 @@ const FooterForm = () => {
                     name='email'
                     placeholder='email'
                     className={styles.footerForm_input}
+                    onChange={onChangeEmailHandler}
                 />
             </div>
             <div className={styles.footerForm_row}>
@@ -47,6 +59,7 @@ const FooterForm = () => {
                     rows='3'
                     placeholder='message'
                     className={styles.footerForm_input}
+                    onChange={onChangeMessageHandler}
                 ></textarea>
             </div>
             <div className={styles.footerForm_row}>
