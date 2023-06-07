@@ -7,7 +7,11 @@ const ProjectItem = (props) => {
     return (
         <div className={styles.projectItem}>
             <div className={styles.projectItem_imageContainer}>
-                <img className={styles.projectItem_image} src={props.project.smallImage} />
+                <img
+                    className={styles.projectItem_image}
+                    src={props.project.smallImage}
+                    loading='lazy'
+                />
                 <div className={styles.projectItem_imageOverlay}>
                     <Button destination={props.project.liveURL}>View project</Button>
                     <Button destination={props.project.githubURL}>View code</Button>

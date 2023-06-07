@@ -10,11 +10,16 @@ import PatternRings from '../../assets/images/pattern-rings.svg';
 const Hero = () => {
     return (
         <div className={styles.hero}>
-            <img
-                className={styles.hero_photo}
-                src={ImageProfileDesktop}
-                alt='Adam Keyes photograph'
-            />
+            <picture>
+                <source media='(max-width: 600px)' srcSet={ImageProfileMobile} />
+                <source media='(max-width: 1000px)' srcSet={ImageProfileTablet} />
+                <img
+                    src={ImageProfileDesktop}
+                    alt='Adam Keyes photograph'
+                    className={styles.hero_photo}
+                />
+            </picture>
+
             <img className={styles.hero_rings} src={PatternRings} alt='Background pattern' />
             <div className={styles.hero_textContent}>
                 <h1 className={styles.hero_title}>
