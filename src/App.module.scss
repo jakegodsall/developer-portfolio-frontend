@@ -1,6 +1,6 @@
 .container {
     &_main {
-        width: 145rem;
+        max-width: 145rem;
         margin-inline: auto;
     }
 
@@ -8,5 +8,14 @@
         background-color: #151515;
         max-width: 145rem;
         padding-inline: 16.5rem;
+
+        @media screen and (max-width: 1250px) {
+            padding-inline: 10vw;
+        }
+
+        @media screen and (max-width: 1000px) {
+            padding: 0;
+            padding-left: 3.2rem;
+        }
     }
 }

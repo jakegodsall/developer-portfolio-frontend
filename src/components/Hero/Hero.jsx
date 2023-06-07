@@ -2,6 +2,9 @@ import Button from '../UI/Button/Button';
 import styles from './Hero.module.scss';
 
 import ImageProfileDesktop from '../../assets/images/image-profile-desktop.webp';
+import ImageProfileTablet from '../../assets/images/image-profile-tablet.webp';
+import ImageProfileMobile from '../../assets/images/image-profile-mobile.webp';
+
 import PatternRings from '../../assets/images/pattern-rings.svg';
 
 const Hero = () => {
@@ -16,7 +19,7 @@ const Hero = () => {
             <div className={styles.hero_textContent}>
                 <h1 className={styles.hero_title}>
                     Nice to meet you! I&apos;m{' '}
-                    <span className={styles.hero_titleSpan}>Adam Keynes</span>.
+                    <span className={styles.hero_titleSpan}>Adam Keyes</span>.
                 </h1>
                 <p className={styles.hero_description}>
                     Based in the UK, I&apos;m a front-end developer passionate about building
