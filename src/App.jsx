@@ -13,8 +13,8 @@ const App = () => {
                 <Hero />
                 <SkillsList />
                 <ProjectList />
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 };

@@ -1,4 +1,29 @@
 .footer {
-    padding-bottom: 10rem;
     background-color: hsla(0, 0%, 14%, 1);
+    padding: 8.4rem 16.5rem 9.2rem;
+
+    &_topRow {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 22rem;
+    }
+
+    &_textContent {
+        max-width: 44.5rem;
+    }
+
+    &_title {
+        font-size: 8.8rem;
+        margin: 0;
+        margin-bottom: 3.6rem;
+        letter-spacing: 0.25rem;
+    }
+
+    &_description {
+        color: hsla(0, 0%, 85%, 1);
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
 }
