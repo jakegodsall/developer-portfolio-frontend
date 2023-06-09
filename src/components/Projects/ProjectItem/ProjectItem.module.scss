@@ -1,4 +1,9 @@
 .projectItem {
+    @media only screen and (max-width: 750px) {
+        width: 70vw;
+        margin-inline: auto;
+    }
+
     &_imageContainer {
         margin-bottom: 2rem;
         position: relative;
@@ -11,6 +16,11 @@
         @media only screen and (max-width: 1000px) {
             width: 34.2rem;
             height: 25.3rem;
+        }
+
+        @media only screen and (max-width: 750px) {
+            width: 100%;
+            height: auto;
         }
     }
 

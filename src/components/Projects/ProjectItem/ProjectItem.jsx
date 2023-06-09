@@ -3,7 +3,6 @@ import styles from './ProjectItem.module.scss';
 import Button from '../../UI/Button/Button';
 
 const ProjectItem = (props) => {
-    console.log(props.project);
     return (
         <div className={styles.projectItem}>
             <div className={styles.projectItem_imageContainer}>
