@@ -2,6 +2,10 @@
     height: 60.6rem;
     position: relative;
 
+    @media only screen and (max-width: 1000px) {
+        padding-left: 3.2rem;
+    }
+
     &_textContent {
         position: relative;
         z-index: 2;

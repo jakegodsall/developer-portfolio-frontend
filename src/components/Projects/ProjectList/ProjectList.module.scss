@@ -1,11 +1,19 @@
 .projectList {
     padding: 14rem 0;
 
+    @media only screen and (max-width: 1000px) {
+        max-width: 70rem;
+        margin-inline: auto;
+    }
+
     &_headerBar {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 8rem;
+
+        @media only screen and (max-width: 1000px) {
+        }
     }
 
     &_title {
@@ -15,9 +23,15 @@
     }
 
     &_list {
+        margin-inline: auto;
         display: grid;
+        align-items: center;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 7rem 3rem;
+
+        @media only screen and (max-width: 1000px) {
+            gap: 6rem 2.4rem;
+        }
     }
 }

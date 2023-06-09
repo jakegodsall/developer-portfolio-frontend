@@ -7,6 +7,11 @@
     &_image {
         width: 54rem;
         height: 40rem;
+
+        @media only screen and (max-width: 1000px) {
+            width: 34.2rem;
+            height: 25.3rem;
+        }
     }
 
     &_imageOverlay {
