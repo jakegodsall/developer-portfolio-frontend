@@ -7,6 +7,10 @@ $color-failure: #ff6f5b;
     flex-direction: column;
     gap: 3.2rem;
 
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
+
     &_row {
         width: 100%;
         display: flex;
@@ -48,7 +52,4 @@ $color-failure: #ff6f5b;
     &_errorMessage___shown {
         visibility: visible;
     }
-}
-
-.test {
 }

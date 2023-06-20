@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
                 <Form />
             </div>
-            <Header />
+            <Header isFooter />
         </div>
     );
 };

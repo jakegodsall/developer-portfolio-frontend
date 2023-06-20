@@ -12,7 +12,8 @@
         justify-content: space-between;
         margin-bottom: 8rem;
 
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 600px) {
+            margin-inline: 1.6rem;
         }
     }
 
@@ -20,6 +21,11 @@
         margin: 0;
         font-size: 8.8rem;
         letter-spacing: -0.25rem;
+
+        @media screen and (max-width: 600px) {
+            font-size: 4rem;
+            letter-spacing: 0.15rem;
+        }
     }
 
     &_list {

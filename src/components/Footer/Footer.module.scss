@@ -6,6 +6,10 @@
         padding: 6rem 3rem 4rem;
     }
 
+    @media only screen and (max-width: 600px) {
+        padding-inline: 1.6rem;
+    }
+
     &_topRow {
         margin-inline: auto;
         display: flex;
@@ -13,18 +17,29 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 5rem;
+        border-bottom: 1px solid #fff;
 
         @media only screen and (max-width: 1000px) {
             flex-direction: column;
             align-items: center;
             text-align: center;
             width: 44.5rem;
-            margin-bottom: 9.2rem;
+            padding-bottom: 9.2rem;
+        }
+
+        @media only screen and (max-width: 600px) {
+            width: 100%;
+            padding-bottom: 8.7rem;
+            margin-bottom: 0;
         }
     }
 
     &_textContent {
         max-width: 44.5rem;
+
+        @media only screen and (max-width: 600px) {
+            max-width: auto;
+        }
     }
 
     &_title {
@@ -32,11 +47,20 @@
         margin: 0;
         margin-bottom: 3.6rem;
         letter-spacing: 0.25rem;
+
+        @media only screen and (max-width: 600px) {
+            font-size: 4rem;
+        }
     }
 
     &_description {
         color: hsla(0, 0%, 85%, 1);
         font-size: 1.8rem;
         line-height: 2.8rem;
+
+        @media only screen and (max-width: 600px) {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+        }
     }
 }
