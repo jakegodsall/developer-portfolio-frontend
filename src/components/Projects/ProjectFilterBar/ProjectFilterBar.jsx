@@ -9,8 +9,13 @@ const ProjectFilterBar = ({ filters, removeSkill }) => {
         removeSkill(skill);
     };
 
+    const filterBarStyles =
+        filters.length > 0
+            ? styles.projectFilterBar
+            : `${styles.projectFilterBar} ${styles.projectFilterBar___hide}`;
+
     return (
-        <div className={styles.projectFilterBar}>
+        <div className={filterBarStyles}>
             <ul className={styles.projectFilterBar_list}>
                 <AnimatePresence>
                     {filters.map((filter, key) => {

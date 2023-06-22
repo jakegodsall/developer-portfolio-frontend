@@ -1,8 +1,15 @@
 .projectFilterBar {
     margin: 4rem 0;
+    height: 6rem;
+    transition: all 0.2s ease-in-out;
 
     &_list {
         display: flex;
         gap: 3rem;
+    }
+
+    &___hide {
+        height: 0;
+        overflow: hidden;
     }
 }

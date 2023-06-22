@@ -72,7 +72,7 @@ const PROJECTS = [
 ];
 
 const ProjectList = () => {
-    const [filters, setFilters] = useState(['html', 'javascript', 'python', 'django', 'css']);
+    const [filters, setFilters] = useState(['html']);
 
     const getSkillHandler = (skill) => {
         console.log(filters);
