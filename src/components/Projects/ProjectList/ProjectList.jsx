@@ -72,7 +72,7 @@ const PROJECTS = [
 ];
 
 const ProjectList = () => {
-    const [filters, setFilters] = useState(['html', 'javascript']);
+    const [filters, setFilters] = useState(['html', 'javascript', 'python', 'django', 'css']);
 
     const getSkillHandler = (skill) => {
         console.log(filters);
@@ -101,6 +101,7 @@ const ProjectList = () => {
                 <Button>Contact me</Button>
             </div>
             <ProjectFilterBar filters={filters} removeSkill={removeSkillHandler} />
+
             <div className={styles.projectList_list}>
                 {PROJECTS.map((project, id) => {
                     return <ProjectItem project={project} key={id} getSkill={getSkillHandler} />;

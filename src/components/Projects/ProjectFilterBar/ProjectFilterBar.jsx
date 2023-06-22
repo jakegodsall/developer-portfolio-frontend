@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import ProjectFilterItem from '../ProjectFilterItem/ProjectFilterItem';
 
@@ -12,13 +12,17 @@ const ProjectFilterBar = ({ filters, removeSkill }) => {
     return (
         <div className={styles.projectFilterBar}>
             <ul className={styles.projectFilterBar_list}>
-                {filters.map((filter, key) => {
-                    return (
-                        <li className={styles.projectFilterBar_item} key={key}>
-                            <ProjectFilterItem filter={filter} removeSkill={removeSkillHandler} />
-                        </li>
-                    );
-                })}
+                <AnimatePresence>
+                    {filters.map((filter, key) => {
+                        return (
+                            <ProjectFilterItem
+                                filter={filter}
+                                removeSkill={removeSkillHandler}
+                                key={key}
+                            />
+                        );
+                    })}
+                </AnimatePresence>
             </ul>
         </div>
     );

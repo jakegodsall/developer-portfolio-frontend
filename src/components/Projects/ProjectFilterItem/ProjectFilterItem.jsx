@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion';
+
 import styles from './ProjectFilterItem.module.scss';
 
-const ProjectFilterItem = ({ removeSkill, filter }) => {
+const ProjectFilterItem = ({ removeSkill, filter, key }) => {
     const onClickHandler = (e) => {
         const skill = e.target.previousElementSibling.innerHTML;
 
@@ -8,12 +10,19 @@ const ProjectFilterItem = ({ removeSkill, filter }) => {
     };
 
     return (
-        <div className={styles.projectFilterItem}>
+        <motion.li
+            layout
+            key={key}
+            className={styles.projectFilterItem}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <p className={styles.projectFilterItem_content}>{filter}</p>
             <p className={styles.projectFilterItem_button} onClick={onClickHandler}>
                 X
             </p>
-        </div>
+        </motion.li>
     );
 };
 
