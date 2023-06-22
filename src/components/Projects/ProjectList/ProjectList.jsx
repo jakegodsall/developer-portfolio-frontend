@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 import styles from './ProjectList.module.scss';
 
+import ProjectFilterBar from '../ProjectFilterBar/ProjectFilterBar';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import Button from '../../UI/Button/Button';
 
@@ -69,15 +72,38 @@ const PROJECTS = [
 ];
 
 const ProjectList = () => {
+    const [filters, setFilters] = useState(['html', 'javascript']);
+
+    const getSkillHandler = (skill) => {
+        console.log(filters);
+
+        if (!filters.includes(skill)) {
+            setFilters((prevState) => {
+                return [...prevState, skill];
+            });
+        }
+    };
+
+    const removeSkillHandler = (skill) => {
+        if (filters.includes(skill)) {
+            setFilters((prevState) => {
+                return prevState.filter((item) => {
+                    return item !== skill;
+                });
+            });
+        }
+    };
+
     return (
         <div className={styles.projectList}>
             <div className={styles.projectList_headerBar}>
                 <h2 className={styles.projectList_title}>Projects</h2>
                 <Button>Contact me</Button>
             </div>
+            <ProjectFilterBar filters={filters} removeSkill={removeSkillHandler} />
             <div className={styles.projectList_list}>
                 {PROJECTS.map((project, id) => {
-                    return <ProjectItem project={project} key={id} />;
+                    return <ProjectItem project={project} key={id} getSkill={getSkillHandler} />;
                 })}
             </div>
         </div>
