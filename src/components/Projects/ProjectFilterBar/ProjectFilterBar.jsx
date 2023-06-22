@@ -1,9 +1,11 @@
+import { motion, AnimatePresence } from 'framer-motion';
+
+import ProjectFilterItem from '../ProjectFilterItem/ProjectFilterItem';
+
 import styles from './ProjectFilterBar.module.scss';
 
 const ProjectFilterBar = ({ filters, removeSkill }) => {
-    const onClickHandler = (e) => {
-        const skill = e.target.previousElementSibling.innerHTML;
-
+    const removeSkillHandler = (skill) => {
         removeSkill(skill);
     };
 
@@ -13,10 +15,7 @@ const ProjectFilterBar = ({ filters, removeSkill }) => {
                 {filters.map((filter, key) => {
                     return (
                         <li className={styles.projectFilterBar_item} key={key}>
-                            <p className={styles.projectFilterBar_content}>{filter}</p>
-                            <p className={styles.projectFilterBar_button} onClick={onClickHandler}>
-                                X
-                            </p>
+                            <ProjectFilterItem filter={filter} removeSkill={removeSkillHandler} />
                         </li>
                     );
                 })}
