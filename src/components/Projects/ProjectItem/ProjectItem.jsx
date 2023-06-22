@@ -10,7 +10,7 @@ const ProjectItem = (props) => {
     };
 
     return (
-        <div className={styles.projectItem}>
+        <li className={styles.projectItem}>
             <div className={styles.projectItem_imageContainer}>
                 <img
                     className={styles.projectItem_image}
@@ -38,7 +38,7 @@ const ProjectItem = (props) => {
                     })}
                 </ul>
             </div>
-        </div>
+        </li>
     );
 };
 

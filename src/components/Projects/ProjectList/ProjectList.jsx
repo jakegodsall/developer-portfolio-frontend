@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 import styles from './ProjectList.module.scss';
 
@@ -71,8 +72,22 @@ const PROJECTS = [
     },
 ];
 
+const testProject = (filterList, skillList) => {
+    let result = false;
+    filterList.forEach((filter) => {
+        skillList.some((skill) => {
+            if (skill === filter) {
+                result = true;
+            }
+        });
+    });
+
+    return result;
+};
+
 const ProjectList = () => {
-    const [filters, setFilters] = useState(['html']);
+    const [filters, setFilters] = useState([]);
+    const [projects, setProjects] = useState(PROJECTS);
 
     const getSkillHandler = (skill) => {
         console.log(filters);
@@ -82,6 +97,34 @@ const ProjectList = () => {
                 return [...prevState, skill];
             });
         }
+
+        setProjects((projects) => {
+            const filteredProjects = projects.filter((project) => {
+                const skills = project.skills;
+
+                let result = false;
+
+                filters.forEach((filter) => {
+                    console.log('filter', filter);
+                    skills.some((skill) => {
+                        console.log('skill', skill);
+                        if (skill === filter) {
+                            result = true;
+                        }
+                    });
+                });
+
+                console.log(result);
+
+                if (result === true) {
+                    return project;
+                }
+            });
+
+            console.log(filteredProjects);
+
+            return filteredProjects;
+        });
     };
 
     const removeSkillHandler = (skill) => {
@@ -92,6 +135,22 @@ const ProjectList = () => {
                 });
             });
         }
+
+        setProjects((projects) => {
+            const filteredProjects = projects.filter((project) => {
+                console.log(
+                    'project: ',
+                    project.skills,
+                    ' result: ',
+                    testProject(filters, project.skills)
+                );
+                return testProject(filters, project.skills);
+            });
+
+            console.log(filteredProjects);
+
+            return filteredProjects;
+        });
     };
 
     return (
@@ -102,11 +161,15 @@ const ProjectList = () => {
             </div>
             <ProjectFilterBar filters={filters} removeSkill={removeSkillHandler} />
 
-            <div className={styles.projectList_list}>
-                {PROJECTS.map((project, id) => {
-                    return <ProjectItem project={project} key={id} getSkill={getSkillHandler} />;
-                })}
-            </div>
+            <ul className={styles.projectList_list}>
+                <AnimatePresence>
+                    {projects.map((project, id) => {
+                        return (
+                            <ProjectItem project={project} key={id} getSkill={getSkillHandler} />
+                        );
+                    })}
+                </AnimatePresence>
+            </ul>
         </div>
     );
 };
