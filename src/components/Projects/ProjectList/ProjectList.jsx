@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import styles from './ProjectList.module.scss';
@@ -72,85 +72,46 @@ const PROJECTS = [
     },
 ];
 
-const testProject = (filterList, skillList) => {
-    let result = false;
-    filterList.forEach((filter) => {
-        skillList.some((skill) => {
-            if (skill === filter) {
-                result = true;
-            }
-        });
-    });
-
-    return result;
-};
-
 const ProjectList = () => {
+    const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
     const [filters, setFilters] = useState([]);
-    const [projects, setProjects] = useState(PROJECTS);
 
-    const getSkillHandler = (skill) => {
-        console.log(filters);
+    useEffect(() => {
+        filtersHandler(filters);
+    }, [filters]);
 
-        if (!filters.includes(skill)) {
-            setFilters((prevState) => {
-                return [...prevState, skill];
-            });
-        }
+    const filtersHandler = (filters) => {
+        setFilteredProjects([]);
+        // loop through each project
+        PROJECTS.forEach((project) => {
+            // get skills array for project
+            const skills = project.skills;
 
-        setProjects((projects) => {
-            const filteredProjects = projects.filter((project) => {
-                const skills = project.skills;
-
-                let result = false;
-
-                filters.forEach((filter) => {
-                    console.log('filter', filter);
-                    skills.some((skill) => {
-                        console.log('skill', skill);
-                        if (skill === filter) {
-                            result = true;
-                        }
-                    });
+            // filter projects that have all filters as skills
+            if (filters.every((filter) => skills.includes(filter))) {
+                setFilteredProjects((prevProjects) => {
+                    return [...prevProjects, project];
                 });
-
-                console.log(result);
-
-                if (result === true) {
-                    return project;
-                }
-            });
-
-            console.log(filteredProjects);
-
-            return filteredProjects;
+            }
         });
     };
 
-    const removeSkillHandler = (skill) => {
-        if (filters.includes(skill)) {
+    const getFilterHandler = (filter) => {
+        if (!filters.includes(filter)) {
+            setFilters((prevState) => {
+                return [...prevState, filter];
+            });
+        }
+    };
+
+    const removeFilterHandler = (filter) => {
+        if (filters.includes(filter)) {
             setFilters((prevState) => {
                 return prevState.filter((item) => {
-                    return item !== skill;
+                    return item !== filter;
                 });
             });
         }
-
-        setProjects((projects) => {
-            const filteredProjects = projects.filter((project) => {
-                console.log(
-                    'project: ',
-                    project.skills,
-                    ' result: ',
-                    testProject(filters, project.skills)
-                );
-                return testProject(filters, project.skills);
-            });
-
-            console.log(filteredProjects);
-
-            return filteredProjects;
-        });
     };
 
     return (
@@ -159,13 +120,13 @@ const ProjectList = () => {
                 <h2 className={styles.projectList_title}>Projects</h2>
                 <Button>Contact me</Button>
             </div>
-            <ProjectFilterBar filters={filters} removeSkill={removeSkillHandler} />
+            <ProjectFilterBar filters={filters} removeSkill={removeFilterHandler} />
 
             <ul className={styles.projectList_list}>
                 <AnimatePresence>
-                    {projects.map((project, id) => {
+                    {filteredProjects.map((project, id) => {
                         return (
-                            <ProjectItem project={project} key={id} getSkill={getSkillHandler} />
+                            <ProjectItem project={project} key={id} getSkill={getFilterHandler} />
                         );
                     })}
                 </AnimatePresence>
