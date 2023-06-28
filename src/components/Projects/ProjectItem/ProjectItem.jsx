@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import styles from './ProjectItem.module.scss';
 
 import Button from '../../UI/Button/Button';
@@ -10,7 +12,14 @@ const ProjectItem = (props) => {
     };
 
     return (
-        <li className={styles.projectItem}>
+        <motion.li
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2 }}
+            className={styles.projectItem}
+        >
             <div className={styles.projectItem_imageContainer}>
                 <img
                     className={styles.projectItem_image}
@@ -38,7 +47,7 @@ const ProjectItem = (props) => {
                     })}
                 </ul>
             </div>
-        </li>
+        </motion.li>
     );
 };
 

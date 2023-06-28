@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, LayoutGroup } from 'framer-motion';
 
 import styles from './ProjectList.module.scss';
 
